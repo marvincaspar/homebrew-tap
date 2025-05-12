@@ -5,20 +5,20 @@
 class Clockify2cats < Formula
   desc ""
   homepage "https://github.com/marvincaspar/clockify2cats"
-  version "3.2.1"
+  version "3.2.2"
 
   on_macos do
     on_intel do
-      url "https://github.com/marvincaspar/clockify2cats/releases/download/3.2.1/clockify2cats_Darwin_x86_64.tar.gz"
-      sha256 "f52f0555d1e70e5922d78fb96f02beecebc68d17e32e9fcc54a5a29865c68d6f"
+      url "https://github.com/marvincaspar/clockify2cats/releases/download/3.2.2/clockify2cats_Darwin_x86_64.tar.gz"
+      sha256 "28b14506617eb25d74d3713cac18174969054146d8a4f55fa0c72d127eb2e8ea"
 
       def install
         bin.install "clockify2cats"
       end
     end
     on_arm do
-      url "https://github.com/marvincaspar/clockify2cats/releases/download/3.2.1/clockify2cats_Darwin_arm64.tar.gz"
-      sha256 "b3d5521e59d35a309ac7d17f7a9904d5445d4fd11b2946b29e692d02ed253475"
+      url "https://github.com/marvincaspar/clockify2cats/releases/download/3.2.2/clockify2cats_Darwin_arm64.tar.gz"
+      sha256 "62668eb38a8af8c11d6a3790b398039cd5db809419199db5a6a8d9acd26d8fd0"
 
       def install
         bin.install "clockify2cats"
@@ -29,8 +29,8 @@ class Clockify2cats < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/marvincaspar/clockify2cats/releases/download/3.2.1/clockify2cats_Linux_x86_64.tar.gz"
-        sha256 "4cc0534fa1e4a71ebbd0106d54cf62a5d667e9bb0de0c2146b6381ef8330dbb2"
+        url "https://github.com/marvincaspar/clockify2cats/releases/download/3.2.2/clockify2cats_Linux_x86_64.tar.gz"
+        sha256 "9e18cc80e34e657b9a2c789a821fd7debbd39bb81a3446875d99212e885c1b6a"
 
         def install
           bin.install "clockify2cats"
@@ -39,8 +39,8 @@ class Clockify2cats < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/marvincaspar/clockify2cats/releases/download/3.2.1/clockify2cats_Linux_arm64.tar.gz"
-        sha256 "e00efb51be70fe4c842fcbadcfacb7d6b92ea6ae1e1bc045d9732743b0e990e5"
+        url "https://github.com/marvincaspar/clockify2cats/releases/download/3.2.2/clockify2cats_Linux_arm64.tar.gz"
+        sha256 "0d84550c59434a4f3dfde7cbe419ec6734d188d5ab1d80d4be23ec7b7aa8d67e"
 
         def install
           bin.install "clockify2cats"
