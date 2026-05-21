@@ -47,6 +47,6 @@ class Clockify2cats < Formula
   end
 
   test do
-    system "#{bin}/clockify2cats version"
+    system "#{bin}/clockify2cats", "version"
   end
 end
