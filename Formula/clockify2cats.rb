@@ -5,20 +5,20 @@
 class Clockify2cats < Formula
   desc "CLI for exporting clockify data and generate a SAP CATS report as csv"
   homepage "https://github.com/marvincaspar/clockify2cats"
-  version "3.3.1"
+  version "3.4.0"
 
   on_macos do
-    on_intel do
-      url "https://github.com/marvincaspar/clockify2cats/releases/download/3.3.1/clockify2cats_Darwin_x86_64.tar.gz"
-      sha256 "e5e9a5c4de8feccc108a27dd69acb434d9450dde36e363b2b2fc3c50ef728fb4"
+    if Hardware::CPU.intel?
+      url "https://github.com/marvincaspar/clockify2cats/releases/download/3.4.0/clockify2cats_Darwin_x86_64.tar.gz"
+      sha256 "af652f8a68ec12c43488d74291f7b39f9fe8fcd93f394649bb0d9b1657cd1c38"
 
       define_method(:install) do
         bin.install "clockify2cats"
       end
     end
-    on_arm do
-      url "https://github.com/marvincaspar/clockify2cats/releases/download/3.3.1/clockify2cats_Darwin_arm64.tar.gz"
-      sha256 "9d0bbdfafdee29b38ba976245a446caaf73eb7e4efd3ac20ac9f118a566095b3"
+    if Hardware::CPU.arm?
+      url "https://github.com/marvincaspar/clockify2cats/releases/download/3.4.0/clockify2cats_Darwin_arm64.tar.gz"
+      sha256 "0b9a44ed112e530dbcf8a67147b98ca29568cbdb3d950b2315a748348f2fbf2c"
 
       define_method(:install) do
         bin.install "clockify2cats"
@@ -27,29 +27,23 @@ class Clockify2cats < Formula
   end
 
   on_linux do
-    on_intel do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/marvincaspar/clockify2cats/releases/download/3.3.1/clockify2cats_Linux_x86_64.tar.gz"
-        sha256 "4b6e96d7f5b7a1f8203d071dda5bbcfad59362e0124c6c71c28489b94beca4da"
-
-        define_method(:install) do
-          bin.install "clockify2cats"
-        end
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/marvincaspar/clockify2cats/releases/download/3.4.0/clockify2cats_Linux_x86_64.tar.gz"
+      sha256 "12bede82192358e3c803e36880c21b7d545013d1c8e63a6aeef4a4df338c82a1"
+      define_method(:install) do
+        bin.install "clockify2cats"
       end
     end
-    on_arm do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/marvincaspar/clockify2cats/releases/download/3.3.1/clockify2cats_Linux_arm64.tar.gz"
-        sha256 "abec066a962d7f3f34169d38e773b9061b2637172755b08b67c31568664422ac"
-
-        define_method(:install) do
-          bin.install "clockify2cats"
-        end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/marvincaspar/clockify2cats/releases/download/3.4.0/clockify2cats_Linux_arm64.tar.gz"
+      sha256 "5241d8b4f68f9cfa42b1bdadc8583fabf61dd6f38632b2417195d544df95f0a7"
+      define_method(:install) do
+        bin.install "clockify2cats"
       end
     end
   end
 
   test do
-    system "#{bin}/clockify2cats", "version"
+    system "#{bin}/clockify2cats version"
   end
 end
