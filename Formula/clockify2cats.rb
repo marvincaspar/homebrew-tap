@@ -7,6 +7,9 @@ class Clockify2cats < Formula
   homepage "https://github.com/marvincaspar/clockify2cats"
   version "3.4.0"
 
+  # Discussion ref: https://github.com/goreleaser/goreleaser/discussions/5563
+  disable! date: "2026-05-21", because: "the cask should be used now instead", replacement_cask: "clockify2cats"
+
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/marvincaspar/clockify2cats/releases/download/3.4.0/clockify2cats_Darwin_x86_64.tar.gz"
