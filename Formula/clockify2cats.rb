@@ -8,7 +8,7 @@ class Clockify2cats < Formula
   version "3.4.0"
 
   # Discussion ref: https://github.com/goreleaser/goreleaser/discussions/5563
-  # disable! date: "2026-05-21", because: "the cask should be used now instead", replacement_cask: "clockify2cats"
+  disable! date: "2026-05-21", because: "the cask should be used now instead", replacement_cask: "clockify2cats"
 
   on_macos do
     if Hardware::CPU.intel?
