@@ -33,14 +33,15 @@ cask "clockify2cats" do
   end
 
   binary "clockify2cats"
-  generate_completions_from_executable "clockify2cats",
-    shell_parameter_format: :cobra
 
   postflight do
     if OS.mac?
       system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/clockify2cats"]
     end
   end
+  
+  generate_completions_from_executable "clockify2cats",
+    shell_parameter_format: :cobra
 
   # No zap stanza required
 
