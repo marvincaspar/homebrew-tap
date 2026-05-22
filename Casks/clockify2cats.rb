@@ -4,22 +4,22 @@ cask "clockify2cats" do
 
   on_macos do
     on_intel do
-      sha256 "fb8924224c628396bc8f61777b7dd29d97b1fc294411d0229f60cfb5cc6b3dd0"
+      sha256 "a706fea84502f934d16f797e5d0dc3765f9191d6151319eedeca1dfecc295ce4"
       url "https://github.com/marvincaspar/clockify2cats/releases/download/#{version}/clockify2cats_Darwin_x86_64.tar.gz"
     end
     on_arm do
-      sha256 "c9a6ecaf8ebed7728c067de651f726c2d69253054f04dcbe3bf5f91fcc344b3b"
+      sha256 "d3388782799b56e1bf6a510dd6dfc8be3153d15b34211d39478745e67bed33eb"
       url "https://github.com/marvincaspar/clockify2cats/releases/download/#{version}/clockify2cats_Darwin_arm64.tar.gz"
     end
   end
 
   on_linux do
     on_intel do
-      sha256 "3d2a1cb5d3483e7a086b871f5ea7eee5cfd2d16bad25afe96304e8158e67fdef"
+      sha256 "ddbdfedb41b30953f24bf08af3ad844492393033b3f53eebf1897d5e902dbf0d"
       url "https://github.com/marvincaspar/clockify2cats/releases/download/#{version}/clockify2cats_Linux_x86_64.tar.gz"
     end
     on_arm do
-      sha256 "cbb3e6f3444b2ab840078a7e96386a02ec8d709c9bb2109d142160c674235bea"
+      sha256 "8aa8021a51336d9bd2359c648f1d8a7973c9afe163c422cd8104eb5eb2632ce9"
       url "https://github.com/marvincaspar/clockify2cats/releases/download/#{version}/clockify2cats_Linux_arm64.tar.gz"
     end
   end
@@ -33,15 +33,14 @@ cask "clockify2cats" do
   end
 
   binary "clockify2cats"
+  generate_completions_from_executable "clockify2cats",
+    shell_parameter_format: :cobra
 
   postflight do
     if OS.mac?
       system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/clockify2cats"]
     end
   end
-
-  generate_completions_from_executable "clockify2cats",
-    shell_parameter_format: :cobra
 
   # No zap stanza required
 
